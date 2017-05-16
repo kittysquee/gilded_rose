@@ -7,6 +7,7 @@ class GildedRose
   SULFURAS = "Sulfuras, Hand of Ragnaros"
   MAXIMUM_QUALITY = 50
   MINIMUM_QUALITY = 0
+  ITEM_INCREMENT_VALUE = 1
 
   def initialize(items)
     @items = items
@@ -17,35 +18,35 @@ class GildedRose
       if item.name != BRIE and item.name != BACKSTAGE_PASS
         if item.quality > MINIMUM_QUALITY
           if item.name != SULFURAS
-            item.quality = item.quality - 1
+            item.quality = item.quality - ITEM_INCREMENT_VALUE
           end
         end
       else
         if item.quality < MAXIMUM_QUALITY
-          item.quality = item.quality + 1
+          item.quality = item.quality + ITEM_INCREMENT_VALUE
           if item.name == BACKSTAGE_PASS
             if item.sell_in < 11
-              if item.quality < 50
-                item.quality = item.quality + 1
+              if item.quality < MAXIMUM_QUALITY
+                item.quality = item.quality + ITEM_INCREMENT_VALUE
               end
             end
             if item.sell_in < 6
               if item.quality < MAXIMUM_QUALITY
-                item.quality = item.quality + 1
+                item.quality = item.quality + ITEM_INCREMENT_VALUE
               end
             end
           end
         end
       end
       if item.name != SULFURAS
-        item.sell_in = item.sell_in - 1
+        item.sell_in = item.sell_in - ITEM_INCREMENT_VALUE
       end
       if item.sell_in < 0
         if item.name != BRIE
           if item.name != BACKSTAGE_PASS
             if item.quality > MINIMUM_QUALITY
               if item.name != SULFURAS
-                item.quality = item.quality - 1
+                item.quality = item.quality - ITEM_INCREMENT_VALUE
               end
             end
           else
@@ -53,7 +54,7 @@ class GildedRose
           end
         else
           if item.quality < MAXIMUM_QUALITY
-            item.quality = item.quality + 1
+            item.quality = item.quality + ITEM_INCREMENT_VALUE
           end
         end
       end

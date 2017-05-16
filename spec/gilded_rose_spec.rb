@@ -9,6 +9,8 @@ describe GildedRose do
       expect(items[0].name).to eq "fixme"
     end
 
-    
+    it "should have a maximum quality" do
+      items = 
+    end
   end
 end
