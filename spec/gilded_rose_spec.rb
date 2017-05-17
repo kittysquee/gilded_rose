@@ -115,12 +115,14 @@ describe GildedRose do
       end
     end
 
-    # context 'conjured items' do
-    #   it 'decreases in quality twice as quick (by 2 daily)' do
-    #
-    #   end
-    # end
-    #
+    context 'conjured items' do
+      it 'decreases in quality twice as quick (by 2 daily)' do
+        items = [Item.new("Conjured Item", 5, 30)]
+        GildedRose.new(items).update_quality()
+        expect(items[0].quality).to eq 28
+      end
+    end
+
     context 'sell in' do
       it 'decreases by 1 every day' do
         items = [Item.new("Backstage passes to a TAFKAL80ETC concert", 5, 50)]

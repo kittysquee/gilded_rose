@@ -57,6 +57,9 @@ class GildedRose
     return unless item.name != SULFURAS
     return unless item.name != BACKSTAGE_PASS
 
+    if item.name == "Conjured Item"
+      item.quality -= ITEM_CHANGE_VALUE
+    end
     item.quality -= ITEM_CHANGE_VALUE
   end
 end
