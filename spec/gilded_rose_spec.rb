@@ -55,6 +55,12 @@ describe GildedRose do
         GildedRose.new(items).update_quality()
         expect(items[0].quality).to eq 9
       end
+
+      it 'doesn\'t increase in quality' do
+        items = [Item.new("Sulfuras, Hand of Ragnaros", 5, 9)]
+        GildedRose.new(items).update_quality()
+        expect(items[0].quality).to eq 9
+      end
     end
 
     context 'aged brie' do
