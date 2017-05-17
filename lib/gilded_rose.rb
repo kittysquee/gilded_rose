@@ -34,21 +34,18 @@ class GildedRose
           end
         end
       end
-      if item.name != SULFURAS && item.sell_in -= ITEM_INCREMENT_VALUE
-      end
+      item.sell_in -= ITEM_INCREMENT_VALUE if item.name != SULFURAS
       if item.sell_in < 0
         if item.name != BRIE
           if item.name != BACKSTAGE_PASS
             if item.quality > MINIMUM_QUALITY
-              if item.name != SULFURAS && item.quality -= ITEM_INCREMENT_VALUE
-              end
+            item.quality -= ITEM_INCREMENT_VALUE if item.name != SULFURAS
             end
           else
             item.quality -= item.quality
           end
         else
-          if item.quality < MAXIMUM_QUALITY && item.quality += ITEM_INCREMENT_VALUE
-          end
+        item.quality += ITEM_INCREMENT_VALUE if item.quality < MAXIMUM_QUALITY
         end
       end
     end

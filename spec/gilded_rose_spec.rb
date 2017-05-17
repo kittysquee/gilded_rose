@@ -11,6 +11,14 @@ describe GildedRose do
       expect(items[0].name).to eq "fixme"
     end
 
+    context 'miscellaneous item' do
+      it 'can decrease in quality' do
+        items = [Item.new("apple", 5, 5)]
+        GildedRose.new(items).update_quality()
+        expect(items[0].quality).to eq 4
+      end
+    end
+
     context 'quality' do
       it 'is never more than 50' do
 
@@ -90,10 +98,12 @@ describe GildedRose do
     #   end
     # end
     #
-    # context 'sell in' do
-    #   it 'decreases by 1 every day' do
-    #
-    #   end
-    # end
+    context 'sell in' do
+      it 'decreases by 1 every day' do
+        items = [Item.new("Backstage passes to a TAFKAL80ETC concert", 5, 50)]
+        GildedRose.new(items).update_quality()
+        expect(items[0].sell_in).to eq 4
+      end
+    end
   end
 end
