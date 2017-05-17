@@ -70,7 +70,7 @@ describe GildedRose do
         expect(items[0].quality).to_not eq 51
       end
 
-      it 'once sell in is 0, it\'s quality drops twice as quickly' do
+      it 'once sell in is 0, it\'s quality increases twice as quickly' do
         items = [Item.new("Aged Brie", -1, 30)]
         GildedRose.new(items).update_quality()
         expect(items[0].quality).to eq 32
