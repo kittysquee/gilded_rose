@@ -25,14 +25,14 @@ class GildedRose
     if item.sell_in < 0
       if item.name != BRIE
         if item.name != BACKSTAGE_PASS
-          if item.quality > MINIMUM_QUALITY
-          item.quality -= ITEM_INCREMENT_VALUE if item.name != SULFURAS
+          if item.quality > MINIMUM_QUALITY && item.name != SULFURAS
+            item.quality -= ITEM_INCREMENT_VALUE
           end
         else
           item.quality -= item.quality
         end
       else
-        item.quality += ITEM_INCREMENT_VALUE if item.quality < MAXIMUM_QUALITY
+        increase_quality(item)
       end
     end
   end
@@ -43,23 +43,20 @@ class GildedRose
         item.quality -= ITEM_INCREMENT_VALUE
       end
     else
-      if item.quality < MAXIMUM_QUALITY
-        item.quality += ITEM_INCREMENT_VALUE
-        special_backstage_pass_check(item)
-      end
+      increase_quality(item)
+      special_backstage_pass_check(item)
     end
   end
 
   def special_backstage_pass_check(item)
     return unless item.name == BACKSTAGE_PASS
 
-    if item.sell_in < 11
-      if item.quality < MAXIMUM_QUALITY && item.quality += ITEM_INCREMENT_VALUE
-      end
-    end
-    if item.sell_in < 6
-      if item.quality < MAXIMUM_QUALITY && item.quality += ITEM_INCREMENT_VALUE
-      end
-    end
+    increase_quality(item) if item.sell_in < 11
+    increase_quality(item) if item.sell_in < 6
+  end
+
+  def increase_quality(item)
+    return unless item.quality < MAXIMUM_QUALITY
+    item.quality += ITEM_INCREMENT_VALUE
   end
 end
