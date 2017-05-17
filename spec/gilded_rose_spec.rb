@@ -17,6 +17,18 @@ describe GildedRose do
         GildedRose.new(items).update_quality()
         expect(items[0].quality).to eq 4
       end
+
+      it 'will decrease in quality after sell in date has passed' do
+        items = [Item.new("apple", -1, 5)]
+        GildedRose.new(items).update_quality()
+        expect(items[0].quality).to eq 3
+      end
+
+      # it 'never has a quality over 50' do
+      #   items = [Item.new("apple", -1, 5)]
+      #   GildedRose.new(items).update_quality()
+      #   expect(items[0].quality).to eq 3
+      # end
     end
 
     context 'quality' do
@@ -49,7 +61,6 @@ describe GildedRose do
       it 'increases in quality as it gets older' do
         items = [Item.new("Aged Brie", 4, 8)]
         GildedRose.new(items).update_quality()
-
         expect(items[0].quality).to eq 9
       end
 
@@ -59,11 +70,11 @@ describe GildedRose do
         expect(items[0].quality).to_not eq 51
       end
 
-      # it 'once sell in is 0, it\'s quality drops twice as quickly' do
-      #   items = [Item.new("Aged Brie", -1, 50)]
-      #   GildedRose.new(items).update_quality()
-      #   expect(items[0].quality).to eq 48
-      # end
+      it 'once sell in is 0, it\'s quality drops twice as quickly' do
+        items = [Item.new("Aged Brie", -1, 30)]
+        GildedRose.new(items).update_quality()
+        expect(items[0].quality).to eq 32
+      end
     end
 
     context 'backstage passes' do

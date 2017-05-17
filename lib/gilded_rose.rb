@@ -45,7 +45,7 @@ class GildedRose
             item.quality -= item.quality
           end
         else
-        item.quality += ITEM_INCREMENT_VALUE if item.quality < MAXIMUM_QUALITY
+          item.quality += ITEM_INCREMENT_VALUE if item.quality < MAXIMUM_QUALITY
         end
       end
     end
