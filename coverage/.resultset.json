@@ -157,8 +157,8 @@
         15,
         4,
         3,
+        null,
         2,
-        1,
         null,
         null,
         1,
@@ -171,14 +171,12 @@
         null,
         1,
         15,
+        null,
         6,
-        2,
-        null,
         null,
         null,
         9,
         9,
-        null,
         null,
         null,
         null,
@@ -193,9 +191,15 @@
         19,
         9,
         null,
+        null,
+        1,
+        6,
+        3,
+        null,
         null
       ],
       "/Users/elaineosbourn/Projects/makers_academy/gilded_rose/lib/item.rb": [
+        null,
         1,
         1,
         null,
@@ -223,6 +227,6 @@
         null
       ]
     },
-    "timestamp": 1495028997
+    "timestamp": 1495030234
   }
 }

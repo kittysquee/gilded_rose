@@ -25,9 +25,7 @@ class GildedRose
     if item.sell_in < 0
       if item.name != BRIE
         if item.name != BACKSTAGE_PASS
-          if item.quality > MINIMUM_QUALITY && item.name != SULFURAS
-            item.quality -= ITEM_INCREMENT_VALUE
-          end
+          decrease_quality(item) if item.name != SULFURAS
         else
           item.quality -= item.quality
         end
@@ -39,9 +37,7 @@ class GildedRose
 
   def quality_calculator(item)
     if item.name != BRIE && item.name != BACKSTAGE_PASS
-      if item.quality > MINIMUM_QUALITY && item.name != SULFURAS
-        item.quality -= ITEM_INCREMENT_VALUE
-      end
+      decrease_quality(item) if item.name != SULFURAS
     else
       increase_quality(item)
       special_backstage_pass_check(item)
@@ -58,5 +54,10 @@ class GildedRose
   def increase_quality(item)
     return unless item.quality < MAXIMUM_QUALITY
     item.quality += ITEM_INCREMENT_VALUE
+  end
+
+  def decrease_quality(item)
+    return unless item.quality > MINIMUM_QUALITY
+    item.quality -= ITEM_INCREMENT_VALUE
   end
 end
