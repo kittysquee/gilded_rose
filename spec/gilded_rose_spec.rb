@@ -23,6 +23,12 @@ describe GildedRose do
       it 'is never more than 50' do
 
       end
+
+      it 'is never negative' do
+        items = [Item.new("apple", 5, 0)]
+        GildedRose.new(items).update_quality()
+        expect(items[0].quality).to_not eq -1
+      end
     end
 
     context 'sulfuras' do
