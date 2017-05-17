@@ -14,7 +14,7 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2017-05-17T18:21:41+01:00">2017-05-17T18:21:41+01:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2017-05-17T18:25:00+01:00">2017-05-17T18:25:00+01:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -315,13 +315,13 @@
         <li class="covered" data-hits="16" data-linenumber="33">
           <span class="hits">16</span>
           
-          <code class="ruby">    if item.name != BRIE &amp;&amp; item.name != BACKSTAGE_PASS</code>
+          <code class="ruby">    if item.name == BRIE || item.name == BACKSTAGE_PASS</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="34">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="9" data-linenumber="34">
+          <span class="hits">9</span>
           
-          <code class="ruby">      decrease_quality(item)</code>
+          <code class="ruby">      increase_quality(item)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="35">
@@ -330,10 +330,10 @@
           <code class="ruby">    else</code>
         </li>
       
-        <li class="covered" data-hits="9" data-linenumber="36">
-          <span class="hits">9</span>
+        <li class="covered" data-hits="7" data-linenumber="36">
+          <span class="hits">7</span>
           
-          <code class="ruby">      increase_quality(item)</code>
+          <code class="ruby">      decrease_quality(item)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="37">

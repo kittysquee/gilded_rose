@@ -30,10 +30,10 @@ class GildedRose
   end
 
   def quality_calculator(item)
-    if item.name != BRIE && item.name != BACKSTAGE_PASS
-      decrease_quality(item)
-    else
+    if item.name == BRIE || item.name == BACKSTAGE_PASS
       increase_quality(item)
+    else
+      decrease_quality(item)
     end
   end
 
